@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "asciinema-player": "^3.0.0",
     "axios": "^0.27.2",
     "umi": "^4.0.21"
   },

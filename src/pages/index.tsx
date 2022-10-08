@@ -1,5 +1,8 @@
-import { ApiOutlined, EllipsisOutlined, GithubOutlined, HolderOutlined, RightOutlined, TagOutlined } from '@ant-design/icons';
+import { useEffect, useRef } from 'react';
+import { ApiOutlined, GithubOutlined, HolderOutlined, RightOutlined } from '@ant-design/icons';
+import * as AsciinemaPlayer from 'asciinema-player';
 
+import { oneApiCast } from './cast.ts';
 import banner from '../assets/banner.png';
 import featProduction from '../assets/feat-production.png';
 import featZero from '../assets/feat-zero.png';
@@ -7,8 +10,20 @@ import featJavaDoc from '../assets/feat-javadoc.png';
 import featExtension from '../assets/feat-extension.png';
 
 import style from './style.less';
+import 'asciinema-player/dist/bundle/asciinema-player.css';
 
 export default function HomePage() {
+  const castRef = useRef<any>();
+
+  useEffect(() => {
+    const base64Str = window.btoa(unescape(encodeURIComponent(oneApiCast)));
+    const player = AsciinemaPlayer.create(
+      { data: oneApiCast },
+      castRef.current,
+    )
+    console.log('>>>>> player: ', player);
+  }, []);
+
   return (
     <div className={style.page}>
       <div className={style.header}>
@@ -23,6 +38,7 @@ export default function HomePage() {
           <GithubOutlined />
         </div>
       </div>
+      <div ref={castRef} />
       <div className={style.body}>
         <div className={style.banner}>
           <div className={style.bg}><img src={banner} /></div>
@@ -72,12 +88,12 @@ export default function HomePage() {
             <HolderOutlined />
           </div>
           <div className={style.main}>
-            <iframe
+            {/* <iframe
               src="https://codesandbox.io/embed/oneapi-services-demo-ktyw7i?expanddevtools=1&fontsize=12&module=%2Fsrc%2Fservices%2FhomeController.ts&moduleview=1&theme=dark&view=editor"
               title="OneAPI services demo"
               allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
               sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-            ></iframe>
+            ></iframe> */}
           </div>
         </div>
       </div>
