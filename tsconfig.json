@@ -1,8 +1,14 @@
 {
-  "extends": "./src/.umi/tsconfig.json",
   "compilerOptions": {
-    "paths": {
-      "@/utils/*": ["./src/utils/*"],
-    }
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "types": ["jest"],
+    "strict": true,
+    "skipLibCheck": true,
+    "declaration": true
   }
 }

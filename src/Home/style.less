@@ -1,0 +1,196 @@
+@import '~antd/dist/antd.css';
+
+.home {
+  font-size: 14px;
+  line-height: 1.5;
+
+  a {
+    text-decoration: none;
+  }
+
+  // banner
+  .banner {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    height: 600px;
+    background-color: #ffffff;
+    background-image: radial-gradient(#878787 0.5px, transparent 0.5px);
+    background-size: 10px 10px;
+    border-bottom: 1px solid #ddd;
+    opacity: 0.8;
+
+    .desc {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 1200px;
+      height: 500px;
+      margin: 0 auto;
+
+      h3 {
+        margin: 0 0 24px;
+        color: #000;
+        font-weight: 500;
+        font-size: 50px;
+        font-size: 50px;
+      }
+
+      p {
+        width: 485px;
+        margin: 0 0 14px;
+        color: #333;
+        font-size: 20px;
+        line-height: 1.5;
+        text-align: justify;
+      }
+
+      .action {
+        display: flex;
+        padding: 24px 0 0;
+
+        a {
+          display: flex;
+          align-items: center;
+          height: 40px;
+          padding: 12px 18px 12px 24px;
+          color: #fff;
+          font-size: 14px;
+          background: #3c58ee;
+          border-radius: 40px;
+
+          :global {
+            .anticon {
+              margin: 0 0 0 8px;
+            }
+          }
+        }
+      }
+    }
+
+    .termDemo {
+      position: absolute;
+      top: 50px;
+      bottom: 0;
+      left: 36%;
+      z-index: 10;
+      width: 800px;
+      height: 500px;
+      overflow: hidden;
+
+      .castPlayer,
+      .terminal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 6px;
+        transform: scale(0.83333);
+        transform-origin: 100% 50%;
+      }
+
+      .castPlayer {
+        :global {
+          .asciinema-player-wrapper {
+            background: #000;
+          }
+        }
+      }
+
+      .terminal {
+        overflow: hidden;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar-track {
+          background: rgba(0, 0, 0, 0.9);
+          box-shadow: 0 none;
+        }
+
+        &::-webkit-scrollbar {
+          width: 10px;
+          background: none;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: rgba(255, 255, 255, 0.8);
+          border-radius: 10px;
+        }
+
+        :global {
+          .prism-code {
+            margin: 0;
+            padding: 6px;
+          }
+
+          code[class*='language-'],
+          pre[class*='language-'] {
+            font-size: 12px;
+            text-shadow: none !important;
+          }
+        }
+      }
+
+      .active {
+        z-index: 11;
+      }
+
+      // 切换
+      .switch {
+        position: absolute;
+        right: 5px;
+        bottom: 10px;
+        display: flex;
+        align-items: center;
+        color: #666;
+        font-size: 12px;
+
+        :global {
+          .ant-switch {
+            margin: 0 0 0 8px;
+          }
+        }
+      }
+    }
+  }
+
+  // feature
+  .feature {
+    display: grid;
+    grid-column-gap: 72px;
+    grid-template-columns: repeat(4, 1fr);
+    width: 1200px;
+    margin: 0 auto;
+    padding: 72px 0;
+
+    .featCard {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+
+      img {
+        display: block;
+        height: 120px;
+        margin: 0 auto 14px;
+      }
+
+      h3 {
+        margin: 0 0 21px 0;
+        color: #454d64;
+        font-weight: 500;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      p {
+        margin: 0;
+        color: #717484;
+        text-align: justify;
+      }
+    }
+  }
+}

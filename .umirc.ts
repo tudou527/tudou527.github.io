@@ -1,0 +1,53 @@
+import { defineConfig } from 'dumi';
+
+// more config: https://d.umijs.org/config
+export default defineConfig({
+  title: 'OneAPI',
+  description: '一个根据 Java 代码生成 API 的工具，不需要后端改代码，也不需要启动后端应用',
+
+  favicon: 'https://oneapi.app/public/favicon.svg',
+  logo: 'https://oneapi.app/public/favicon.svg',
+
+  locales: [['zh-CN', '中文']],
+  outputPath: 'docs-dist',
+  mode: 'site',
+
+  // 导航配置
+  navs: [
+    {
+      title: '指南',
+      path: '/intro',
+    },
+    {
+      title: '文档',
+      path: '/usage',
+    },
+  ],
+
+  // google 分析
+  analytics: {
+    ga: 'G-HL5ZYTV94H',
+  },
+
+  styles: [
+    `
+    .__dumi-default-navbar-logo {
+      padding: 0 0 0 32px !important;
+      font-size: 18px !important;
+      background-size: 24px 24px !important;
+    }
+    `,
+  ],
+
+  extraBabelPlugins: [
+    [
+      'babel-plugin-import',
+      {
+        libraryName: 'antd',
+        libraryDirectory: 'es',
+        style: true,
+      },
+      'antd',
+    ],
+  ],
+});
