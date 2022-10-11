@@ -58,19 +58,21 @@ export default function Home() {
             ref={castRef}
           />
           <div className={`${style.terminal} ${state.showAll ? style.active : ''}`}>
-            <Highlight {...defaultProps} theme={dracula} code={oneApiTerminalStr} language="bash">
-              {({ className, style, tokens, getLineProps, getTokenProps }: any) => (
-                <pre className={className} style={style}>
-                  {tokens.map((line: any, i: any) => (
-                    <div {...getLineProps({ line, key: i })}>
-                      {line.map((token: any, key: any) => (
-                        <span {...getTokenProps({ token, key })} />
-                      ))}
-                    </div>
-                  ))}
-                </pre>
-              )}
-            </Highlight>
+            <div className={style.terminalContainer}>
+              <Highlight {...defaultProps} theme={dracula} code={oneApiTerminalStr} language="bash">
+                {({ className, style, tokens, getLineProps, getTokenProps }: any) => (
+                  <pre className={className} style={style}>
+                    {tokens.map((line: any, i: any) => (
+                      <div {...getLineProps({ line, key: i })}>
+                        {line.map((token: any, key: any) => (
+                          <span {...getTokenProps({ token, key })} />
+                        ))}
+                      </div>
+                    ))}
+                  </pre>
+                )}
+              </Highlight>
+            </div>
           </div>
           <div className={style.switch}>
             切换终端输出结果{' '}

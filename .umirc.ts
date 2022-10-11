@@ -5,8 +5,8 @@ export default defineConfig({
   title: 'OneAPI',
   description: '一个根据 Java 代码生成 API 的工具，不需要后端改代码，也不需要启动后端应用',
 
-  favicon: 'https://oneapi.app/public/favicon.svg',
-  logo: 'https://oneapi.app/public/favicon.svg',
+  favicon: './favicon.svg',
+  logo: './favicon.svg',
 
   locales: [['zh-CN', '中文']],
   outputPath: 'docs-dist',
