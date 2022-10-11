@@ -22,6 +22,10 @@ export default defineConfig({
       title: '文档',
       path: '/usage',
     },
+    {
+      title: 'GitHub',
+      path: 'https://github.com/tudou527/OneAPI',
+    },
   ],
 
   // google 分析

@@ -82,14 +82,6 @@ export default function Home() {
       </div>
       <div className={style.feature}>
         <div className={style.featCard}>
-          <img src={featProduction} />
-          <h3>专注 API 生产</h3>
-          <p>
-            与业界其他工具相比，OneAPI 专注于 API 生产，也支持导出 OpenAPI
-            协议格式数据，方便在其他工具中消费
-          </p>
-        </div>
-        <div className={style.featCard}>
           <img src={featZero} />
           <h3>零接入成本</h3>
           <p>
@@ -99,9 +91,18 @@ export default function Home() {
         </div>
         <div className={style.featCard}>
           <img src={featJavaDoc} />
-          <h3>支持 JavaDoc</h3>
+          <h3>代码即文档</h3>
           <p>
-            OneAPI 会自动识别方法&字段中定义的 JavaDoc 作为注释内容，同时也兼容部分 Swagger 注解
+            OneAPI 会自动识别方法&字段中定义的 JavaDoc 作为 API 文档的描述信息，同时兼容部分 Swagger
+            注解
+          </p>
+        </div>
+        <div className={style.featCard}>
+          <img src={featProduction} />
+          <h3>专注 API 生产</h3>
+          <p>
+            与业界其他工具相比，OneAPI 专注于 API 生产，也支持导出 OpenAPI
+            协议格式数据，方便在其他工具中消费
           </p>
         </div>
         <div className={style.featCard}>
