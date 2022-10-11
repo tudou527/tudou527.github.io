@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Button, Switch } from 'antd';
+import { Switch } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import * as AsciinemaPlayer from 'asciinema-player';
 import Highlight, { defaultProps } from 'prism-react-renderer';
@@ -35,6 +35,7 @@ export default function Home() {
       rows: 30,
       cols: 108,
       fit: 'none',
+      autoPlay: true,
       poster: 'npt:00:00:09',
     });
   }, []);
