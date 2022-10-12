@@ -45,61 +45,62 @@ export default function Home() {
       <div className={style.banner}>
         <div className={style.desc}>
           <h3>OneAPI</h3>
-          <p>一个 API 生产工具，根据 Java 代码生成 API，既不需要修改后端代码，也不需要启动应用</p>
+          <p>
+            一个能 💯 替代 Swagger/SpringFox 的 API 生产工具，既不需要修改后端代码，也不需要启动应用
+          </p>
           <div className={style.action}>
             <a href="/usage">
               查看文档
               <RightOutlined />
             </a>
           </div>
-        </div>
-        <div className={style.termDemo}>
-          <div
-            className={`${style.castPlayer} ${!state.showAll ? style.active : ''}`}
-            ref={castRef}
-          />
-          <div className={`${style.terminal} ${state.showAll ? style.active : ''}`}>
-            <div className={style.terminalContainer}>
-              <Highlight {...defaultProps} theme={dracula} code={oneApiTerminalStr} language="bash">
-                {({ className, style, tokens, getLineProps, getTokenProps }: any) => (
-                  <pre className={className} style={style}>
-                    {tokens.map((line: any, i: any) => (
-                      <div {...getLineProps({ line, key: i })}>
-                        {line.map((token: any, key: any) => (
-                          <span {...getTokenProps({ token, key })} />
-                        ))}
-                      </div>
-                    ))}
-                  </pre>
-                )}
-              </Highlight>
+          <div className={style.termDemo}>
+            <div
+              className={`${style.castPlayer} ${!state.showAll ? style.active : ''}`}
+              ref={castRef}
+            />
+            <div className={`${style.terminal} ${state.showAll ? style.active : ''}`}>
+              <div className={style.terminalContainer}>
+                <Highlight
+                  {...defaultProps}
+                  theme={dracula}
+                  code={oneApiTerminalStr}
+                  language="bash"
+                >
+                  {({ className, style, tokens, getLineProps, getTokenProps }: any) => (
+                    <pre className={className} style={style}>
+                      {tokens.map((line: any, i: any) => (
+                        <div {...getLineProps({ line, key: i })}>
+                          {line.map((token: any, key: any) => (
+                            <span {...getTokenProps({ token, key })} />
+                          ))}
+                        </div>
+                      ))}
+                    </pre>
+                  )}
+                </Highlight>
+              </div>
             </div>
-          </div>
-          <div className={style.switch}>
-            切换终端输出结果{' '}
-            <Switch onChange={handleChangeMode} size="small" checked={state.showAll} />
+            <div className={style.switch}>
+              切换终端输出结果{' '}
+              <Switch onChange={handleChangeMode} size="small" checked={state.showAll} />
+            </div>
           </div>
         </div>
       </div>
       <div className={style.feature}>
         <div className={style.featCard}>
-          <img src={featZero} />
+          <img src={featZero} alt="零接入成本" />
           <h3>零接入成本</h3>
-          <p>
-            OneAPI 使用 AST 识别项目中符合 Spring 规范的
-            API，对后端代码没有任何修改成本，也不需要启动应用
-          </p>
+          <p>基于 AST 识别项目中符合规范的 API，既不需要修改后端代码，也不需要启动应用</p>
         </div>
         <div className={style.featCard}>
-          <img src={featJavaDoc} />
+          <img src={featJavaDoc} alt="代码即文档" />
           <h3>代码即文档</h3>
-          <p>
-            OneAPI 会自动识别方法&字段中定义的 JavaDoc 作为 API 文档的描述信息，同时兼容部分 Swagger
-            注解
-          </p>
+          <p>自动识别方法&字段中定义的 JavaDoc 作为 API 文档的描述信息（兼容 Swagger 注解）</p>
         </div>
         <div className={style.featCard}>
-          <img src={featProduction} />
+          <img src={featProduction} alt="专注 API 生产" />
           <h3>专注 API 生产</h3>
           <p>
             与业界其他工具相比，OneAPI 专注于 API 生产，也支持导出 OpenAPI
@@ -107,9 +108,9 @@ export default function Home() {
           </p>
         </div>
         <div className={style.featCard}>
-          <img src={featExtension} />
-          <h3>可扩展</h3>
-          <p>除 RESTful API 外，OneAPI 也能通过扩展的方式识别企业内部自定义协议，如 RPC 等</p>
+          <img src={featExtension} alt="易扩展" />
+          <h3>易扩展</h3>
+          <p>除 RESTFul API 外，可以通过 Node 来扩展识别企业内部自定义协议，如 RPC、GraphQL 等</p>
         </div>
       </div>
     </div>

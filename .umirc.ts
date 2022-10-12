@@ -23,6 +23,10 @@ export default defineConfig({
       path: '/usage',
     },
     {
+      title: '项目示例',
+      children: [{ title: 'Mall', path: '/example/mall' }],
+    },
+    {
       title: 'GitHub',
       path: 'https://github.com/tudou527/OneAPI',
     },
@@ -35,6 +39,9 @@ export default defineConfig({
 
   styles: [
     `
+    body {
+      -webkit-font-smoothing: antialiased;
+    }
     .__dumi-default-navbar-logo {
       padding: 0 0 0 32px !important;
       font-size: 18px !important;
@@ -48,7 +55,6 @@ export default defineConfig({
       'babel-plugin-import',
       {
         libraryName: 'antd',
-        libraryDirectory: 'es',
         style: true,
       },
       'antd',
