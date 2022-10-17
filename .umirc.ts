@@ -1,16 +1,28 @@
 import { defineConfig } from 'dumi';
 
+const description = '一个根据 Java 代码生成 API 的工具，不需要后端改代码，也不需要启动后端应用';
 // more config: https://d.umijs.org/config
 export default defineConfig({
   title: 'OneAPI',
-  description: '一个根据 Java 代码生成 API 的工具，不需要后端改代码，也不需要启动后端应用',
-
-  favicon: './favicon.svg',
-  logo: './favicon.svg',
+  description,
+  favicon: 'https://oneapi.app/favicon.svg',
+  logo: 'https://oneapi.app/favicon.svg',
 
   locales: [['zh-CN', '中文']],
   outputPath: 'docs-dist',
   mode: 'site',
+
+  metas: [
+    {
+      name: 'keywords',
+      content:
+        'OneAPI, Swagger, SpringFox, API 工具, API 生成器, API 文档生成器, API 文档工具, API 文档生成',
+    },
+    {
+      name: 'description',
+      content: description,
+    },
+  ],
 
   ssr: {
     devServerRender: false,
@@ -37,10 +49,11 @@ export default defineConfig({
     },
   ],
 
-  // google 分析
-  analytics: {
-    ga: 'G-HL5ZYTV94H',
-  },
+  // 配置 <body> 里的额外脚本
+  scripts: [
+    { src: 'https://www.googletagmanager.com/gtag/js?id=G-HL5ZYTV94H', async: true },
+    `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HL5ZYTV94H');`,
+  ],
 
   styles: [
     `
