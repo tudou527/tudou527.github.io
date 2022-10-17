@@ -12,6 +12,11 @@ export default defineConfig({
   outputPath: 'docs-dist',
   mode: 'site',
 
+  ssr: {
+    devServerRender: false,
+  },
+  exportStatic: {},
+
   // 导航配置
   navs: [
     {

@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { lazy, useEffect, useRef, useState } from 'react';
 import { Switch } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
-import * as AsciinemaPlayer from 'asciinema-player';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import dracula from 'prism-react-renderer/themes/vsDark';
 
@@ -17,6 +16,7 @@ import style from './style.less';
 export default function Home() {
   const [state, setState] = useState({
     showAll: false,
+    highlightCode: false,
   });
   const castRef = useRef<any>();
   const playerRef = useRef<any>(null);
@@ -27,17 +27,26 @@ export default function Home() {
       player.pause();
     }
 
-    setState({ showAll: checked });
+    setState({ ...state, showAll: checked });
   };
 
   useEffect(() => {
-    playerRef.current = AsciinemaPlayer.create({ data: oneApiCast }, castRef.current!, {
-      rows: 30,
-      cols: 108,
-      fit: 'none',
-      autoPlay: true,
-      poster: 'npt:00:00:09',
-    });
+    if (castRef.current) {
+      setState({
+        ...state,
+        highlightCode: true,
+      });
+
+      import('asciinema-player').then((asciinemaPlayer) => {
+        playerRef.current = asciinemaPlayer.create({ data: oneApiCast }, castRef.current, {
+          rows: 30,
+          cols: 108,
+          fit: 'none',
+          autoPlay: true,
+          poster: 'npt:00:00:09',
+        });
+      });
+    }
   }, []);
 
   return (
@@ -61,30 +70,34 @@ export default function Home() {
             />
             <div className={`${style.terminal} ${state.showAll ? style.active : ''}`}>
               <div className={style.terminalContainer}>
-                <Highlight
-                  {...defaultProps}
-                  theme={dracula}
-                  code={oneApiTerminalStr}
-                  language="bash"
-                >
-                  {({ className, style, tokens, getLineProps, getTokenProps }: any) => (
-                    <pre className={className} style={style}>
-                      {tokens.map((line: any, i: any) => (
-                        <div {...getLineProps({ line, key: i })}>
-                          {line.map((token: any, key: any) => (
-                            <span {...getTokenProps({ token, key })} />
-                          ))}
-                        </div>
-                      ))}
-                    </pre>
-                  )}
-                </Highlight>
+                {state.highlightCode ? (
+                  <Highlight
+                    {...defaultProps}
+                    theme={dracula}
+                    code={oneApiTerminalStr}
+                    language="bash"
+                  >
+                    {({ className, style, tokens, getLineProps, getTokenProps }: any) => (
+                      <pre className={className} style={style}>
+                        {tokens.map((line: any, i: any) => (
+                          <div {...getLineProps({ line, key: i })}>
+                            {line.map((token: any, key: any) => (
+                              <span {...getTokenProps({ token, key })} />
+                            ))}
+                          </div>
+                        ))}
+                      </pre>
+                    )}
+                  </Highlight>
+                ) : null}
               </div>
             </div>
-            <div className={style.switch}>
-              切换终端输出结果{' '}
-              <Switch onChange={handleChangeMode} size="small" checked={state.showAll} />
-            </div>
+            {state.highlightCode ? (
+              <div className={style.switch}>
+                切换终端输出结果{' '}
+                <Switch onChange={handleChangeMode} size="small" checked={state.showAll} />
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
