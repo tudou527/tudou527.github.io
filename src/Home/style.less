@@ -1,0 +1,212 @@
+.home {
+  font-size: 14px;
+  line-height: 1.5;
+
+  a {
+    text-decoration: none;
+  }
+
+  // banner
+  .banner {
+    display: flex;
+    align-items: center;
+    height: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    background-image: radial-gradient(#878787 0.5px, transparent 0.5px);
+    background-size: 10px 10px;
+    border-bottom: 1px solid #ddd;
+    opacity: 0.8;
+
+    .desc {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 1100px;
+      height: 500px;
+      margin: 0 auto;
+
+      h3 {
+        margin: 0 0 24px;
+        color: #000;
+        font-weight: 500;
+        font-size: 38px;
+      }
+
+      p {
+        width: 410px;
+        margin: 0;
+        padding: 4px;
+        color: #333;
+        font-size: 18px;
+        line-height: 1.5;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 6px;
+      }
+
+      .action {
+        display: flex;
+        padding: 24px 0 0;
+
+        a {
+          display: flex;
+          align-items: center;
+          height: 40px;
+          padding: 12px 18px 12px 24px;
+          color: #fff;
+          font-size: 14px;
+          background: #3c58ee;
+          border-radius: 40px;
+
+          :global {
+            .anticon {
+              margin: 0 0 0 8px;
+            }
+          }
+        }
+      }
+
+      .termDemo {
+        position: absolute;
+        top: 0px;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        width: 800px;
+        height: 500px;
+        overflow: hidden;
+
+        .castPlayer,
+        .terminal {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          border-radius: 8px;
+          transform: scale(0.83333);
+          transform-origin: 100% 50%;
+          visibility: hidden;
+        }
+
+        .castPlayer {
+          :global {
+            .asciinema-player-wrapper {
+              background: #000;
+            }
+          }
+        }
+
+        .terminal {
+          overflow: hidden;
+
+          .terminalContainer {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar-track {
+              background: rgba(0, 0, 0, 1);
+              box-shadow: none;
+            }
+            &::-webkit-scrollbar {
+              width: 6px;
+              background: none;
+            }
+            &::-webkit-scrollbar-thumb {
+              background: #878787;
+              border-radius: 6px;
+            }
+
+            :global {
+              .prism-code {
+                margin: 0;
+                padding: 9px;
+                background: #121314 !important;
+              }
+
+              code[class*='language-'],
+              pre[class*='language-'] {
+                font-size: 12px;
+                text-shadow: none !important;
+              }
+
+              .token-line {
+                line-height: 1.33333em;
+              }
+              .token,
+              .operator,
+              .number,
+              .string {
+                color: #ccc !important;
+                background: none !important;
+              }
+            }
+          }
+        }
+
+        .active {
+          z-index: 11;
+          visibility: visible;
+        }
+
+        // 切换
+        .switch {
+          position: absolute;
+          right: 5px;
+          bottom: 10px;
+          display: flex;
+          align-items: center;
+          color: #666;
+          font-size: 12px;
+
+          :global {
+            .ant-switch {
+              margin: 0 0 0 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // feature
+  .feature {
+    display: grid;
+    grid-column-gap: 72px;
+    grid-template-columns: repeat(4, 1fr);
+    width: 1100px;
+    margin: 0 auto;
+    padding: 72px 0;
+
+    .featCard {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+
+      img {
+        display: block;
+        height: 120px;
+        margin: 0 auto 14px;
+      }
+
+      h3 {
+        margin: 0 0 21px 0;
+        color: #454d64;
+        font-weight: 500;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      p {
+        margin: 0;
+        color: #717484;
+        text-align: justify;
+      }
+    }
+  }
+}
