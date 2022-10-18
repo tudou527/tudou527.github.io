@@ -49,10 +49,24 @@ export default defineConfig({
     },
   ],
 
+  headScripts: [
+    `var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2ab9f29877decdfa86413333c724ef0b";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();`,
+  ],
+
   // 配置 <body> 里的额外脚本
   scripts: [
     { src: 'https://www.googletagmanager.com/gtag/js?id=G-HL5ZYTV94H', async: true },
-    `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HL5ZYTV94H');`,
+    `window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HL5ZYTV94H');
+    `,
   ],
 
   styles: [
