@@ -40,8 +40,11 @@ export default defineConfig({
       path: '/usage',
     },
     {
-      title: '项目示例',
-      children: [{ title: 'Mall', path: '/example/mall' }],
+      title: '开源项目示例',
+      children: [
+        { title: 'mall 电商系统', path: '/example/mall' },
+        { title: 'vhr 微人事', path: '/example/vhr' },
+      ],
     },
     {
       title: 'GitHub',

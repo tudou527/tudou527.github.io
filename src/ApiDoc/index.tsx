@@ -25,6 +25,7 @@ interface IState {
 export default function ApiDoc(props: IProps) {
   const { project, schema } = props;
   const modelRef = useRef<any>();
+  const apiRef = useRef<any>();
   const { apiList, modelList } = getSchemaData(schema);
   const [state, setState] = useState<IState>({
     tab: 'api',
@@ -101,10 +102,10 @@ export default function ApiDoc(props: IProps) {
         dataIndex: 'in',
         render: (_val: boolean, rec: any) => {
           if (rec.method === 'POST') {
-            return 'body';
+            return 'Body';
           }
           if (rec.isPathVariable) {
-            return 'params';
+            return 'UrlParams';
           }
 
           return 'QueryParams';
@@ -129,6 +130,7 @@ export default function ApiDoc(props: IProps) {
       <>
         {apiSchema.services?.map((service: any, index: number) => {
           const { type, url, operationId, description, parameter, response } = service;
+          console.log('>>>>> description: ', description);
 
           return (
             <div key={index} className={style.card}>
@@ -136,7 +138,9 @@ export default function ApiDoc(props: IProps) {
                 <Tag color={type === 'GET' ? '#108ee9' : '#f50'}>{type}</Tag>
                 {url}
               </div>
-              <div className={style.desc}>{description.description}</div>
+              {description.description ? (
+                <div className={style.desc}>{description.description}</div>
+              ) : null}
               <div className={style.content}>
                 <div className={style.contentItem}>
                   <h4>返回值</h4>
@@ -227,7 +231,7 @@ export default function ApiDoc(props: IProps) {
       const matchSchema = schema.find((s: any) => s.classPath === hash.slice(1));
       let newState: any = { ...state };
       if (matchSchema) {
-        if (matchSchema.fileType === 'api') {
+        if (matchSchema.fileType === 'ENTRY') {
           newState.tab = 'api';
           newState.selectApi = matchSchema.classPath;
         } else {
@@ -240,18 +244,17 @@ export default function ApiDoc(props: IProps) {
   }, []);
 
   useLayoutEffect(() => {
-    if (state.tab === 'model') {
-      const activeNode = modelRef.current?.querySelector(`.${style.activeTitle}`);
-      if (activeNode) {
-        const rect = activeNode.getBoundingClientRect();
-        const parent = activeNode.parentNode.getBoundingClientRect();
+    const container = state.tab === 'api' ? apiRef.current : modelRef.current;
+    const activeNode = container?.querySelector(`.${style.activeTitle}`);
+    if (activeNode) {
+      const rect = activeNode.getBoundingClientRect();
+      const parent = activeNode.parentNode.getBoundingClientRect();
 
-        if (rect.top > parent.top + parent.height || rect.top < parent.top) {
-          activeNode.scrollIntoView({ behavior: 'smooth' });
-        }
+      if (rect.top > parent.top + parent.height || rect.top < parent.top) {
+        activeNode.scrollIntoView({ behavior: 'smooth' });
       }
     }
-  }, [state.selectModel]);
+  }, [state.selectApi, state.selectModel]);
 
   return (
     <div className={style.apiDoc}>
@@ -273,6 +276,7 @@ export default function ApiDoc(props: IProps) {
           </div>
           <div className={style.tabBody}>
             <div
+              ref={apiRef}
               className={`${style.tabContent} ${state.tab === 'api' ? style.activeContent : ''}`}
             >
               {apiList.map((data) => (

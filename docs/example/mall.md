@@ -12,7 +12,7 @@ inline: true
 import React from 'react';
 
 import ApiDoc from '../../src/ApiDoc';
-import mall from './mall.json';
+import data from './mall.json';
 
-export default () => <ApiDoc project={'macrozheng/mall'} schema={mall} />;
+export default () => <ApiDoc project={'macrozheng/mall'} schema={data} />;
 ```
