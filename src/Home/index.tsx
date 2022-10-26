@@ -1,4 +1,4 @@
-import React, { lazy, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Switch } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import Highlight, { defaultProps } from 'prism-react-renderer';

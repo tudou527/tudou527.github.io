@@ -1,7 +1,11 @@
 {
   "oneapi": {
     "version": "0.6.0",
-    "adapterVersion": "1.0.2"
+    "adapterVersion": "1.0.2",
+    "app": {
+      "name": "lenve/vhr",
+      "repo": "https://github.com/lenve/vhr"
+    }
   },
   "http": [
     {

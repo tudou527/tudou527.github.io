@@ -40,11 +40,8 @@ export default defineConfig({
       path: '/usage',
     },
     {
-      title: '开源项目示例',
-      children: [
-        { title: 'mall 电商系统', path: '/example/mall' },
-        { title: 'vhr 微人事', path: '/example/vhr' },
-      ],
+      title: 'API 工具',
+      path: '/docs',
     },
     {
       title: 'GitHub',
@@ -63,14 +60,7 @@ export default defineConfig({
   ],
 
   // 配置 <body> 里的额外脚本
-  scripts: [
-    { src: 'https://www.googletagmanager.com/gtag/js?id=G-HL5ZYTV94H', async: true },
-    `window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-HL5ZYTV94H');
-    `,
-  ],
+  scripts: [],
 
   styles: [
     `

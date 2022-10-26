@@ -84,3 +84,42 @@ oneapi service -s /Users/admin/demo/oneapi.json -r 'import request from "@/utils
 # 把解析结果转换为 OpenAPI 3.0 JSON Schema
 oneapi openapi -s /Users/admin/demo/oneapi.json -o /Users/admin/demo
 ```
+
+## 在 UmiJS 中使用
+
+OneAPI 提供了 UmiJS 插件，可以方便的从 OneAPI JSON Schema 生成前端消费的 services 及 API 文档（插件代码参考了 @umijs/plugin-openapi）。
+
+### 安装插件
+
+```
+npm i oneapi-umijs-plugin --save
+```
+
+### 配置
+
+`config/config.ts` 或 `.umirc.ts` 中增加插件配置：
+
+```
+plugins: [
+  // 开启插件
+  'oneapi-umijs-plugin',
+],
+
+oneapi: {
+  // services 中导入的 request 配置
+  requestLibPath: "import { request } from 'umi';",
+  // 使用相对路径或在线地址
+  // schemaPath: "https://oneapi.app/docs/oneapi.json",
+  schemaPath: "../oneapi-site/docs/oneapi.json",
+}
+```
+
+最后，在 package.json 的 scripts 中增加如下命令用于生成 services 代码：
+
+```
+"oneapi": "umi oneapi"
+```
+
+插件在开发环境下会自动添加文档路由，路径固定为：`/umi/plugin/oneapi`
+
+<img src="../src/assets/umijs-plugin-doc.png" width="800"  alt="API 文档"/>
