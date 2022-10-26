@@ -14,5 +14,5 @@ import React from 'react';
 import ApiDoc from '../../src/ApiDoc';
 import data from './vhr.json';
 
-export default () => <ApiDoc project={'/lenve/vhr'} schema={data} />;
+export default () => <ApiDoc project={'/lenve/vhr'} schema={data.http} />;
 ```
