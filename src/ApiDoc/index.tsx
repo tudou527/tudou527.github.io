@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, UploadProps } from 'antd';
 import { message, Upload } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
@@ -68,6 +68,20 @@ export default function apiDoc() {
       </div>
     );
   };
+
+  useEffect(() => {
+    const defaultSchema = (window as any).defaultJsonSchema;
+    if (defaultSchema) {
+      try {
+        setState({
+          ...state,
+          schema: defaultSchema,
+        });
+      } catch (e) {
+        console.log('>>>>> e: ', e);
+      }
+    }
+  }, []);
 
   return (
     <>
