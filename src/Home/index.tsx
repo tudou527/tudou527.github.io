@@ -55,7 +55,8 @@ export default function Home() {
         <div className={style.desc}>
           <h3>OneAPI</h3>
           <p>
-            一个能 💯 替代 Swagger/SpringFox 的 API 生产工具，既不需要修改后端代码，也不需要启动应用
+            一个能 💯 替代 springdoc-openapi/Swagger 的 API
+            生产工具，既不需要修改后端代码，也不需要启动应用
           </p>
           <div className={style.action}>
             <a href="/usage">
@@ -125,6 +126,9 @@ export default function Home() {
           <h3>易扩展</h3>
           <p>除 RESTFul API 外，可以通过 Node 来扩展识别企业内部自定义协议，如 RPC、GraphQL 等</p>
         </div>
+      </div>
+      <div className={style.footer}>
+        Powered by <a target="_blank" href="https://d.umijs.org/">dumi</a>
       </div>
     </div>
   );

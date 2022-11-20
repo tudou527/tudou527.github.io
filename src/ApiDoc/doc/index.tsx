@@ -135,9 +135,9 @@ function useSchema(props: IProps) {
   // 搜索
   const handleSearch = (e: any) => {
     clearTimeout(timer);
+    const keyword = e.target?.value || ''; 
 
     timer = window.setTimeout(() => {
-      const keyword = e.target.value;
       const newSchema = schema.slice().filter((s: any) => {
         const { description, classPath, services } = s;
 

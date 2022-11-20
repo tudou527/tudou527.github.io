@@ -9,7 +9,7 @@ OneAPI 的名字由 One、API 2 个单词组合而来，寓意为最后一个 AP
 
 ## OneAPI 是什么
 
-OneAPI 是一个能 💯 替代 Swagger/SpringFox 的 API 生产工具，既不需要修改后端代码，也不需要启动应用。 也支持导出 OpenAPI 3.0 协议数据，方便在其他工具中消费（如接口管理平台/Postman 等）。
+OneAPI 是一个能 💯 替代 springdoc-openapi/Swagger 的 API 生产工具，既不需要修改后端代码，也不需要启动应用。 也支持导出 OpenAPI 3.0 协议数据，方便在其他工具中消费（如接口管理平台/Postman 等）。
 
 ## 与业界其它产品的差异
 

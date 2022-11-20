@@ -67,6 +67,9 @@ export default defineConfig({
     body {
       -webkit-font-smoothing: antialiased;
     }
+    .__dumi-default-search, .__dumi-default-navbar-tool {
+      display: none !important;
+    }
     .__dumi-default-navbar-logo {
       padding: 0 0 0 32px !important;
       font-size: 18px !important;
