@@ -53,7 +53,7 @@ export async function close(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/order/update/close',
-    data: {
+    params: {
       ids: args.ids,
       note: args.note,
     },
@@ -63,14 +63,14 @@ export async function close(args: {
   });
 }
 
-/** 批量删除订单 */
+/** 批量删除订单（由于 OmsOrderController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     ids?: Array<number>,
   }) {
   return request<CommonResult>({
     method: 'POST',
     url: '/order/delete',
-    data: {
+    params: {
       ids: args.ids,
     },
     headers: {
@@ -92,8 +92,8 @@ export async function detail(args: {
   });
 }
 
-/** 修改收货人信息（由于 OmsOrderController 中 updateReceiverInfo 方法重复，此处已自动重命名为 updateReceiverInfoWithPost) */
-export async function updateReceiverInfoWithPost(args: {
+/** 修改收货人信息（由于 OmsOrderController 中 updateReceiverInfo 方法存在多个 url，此处已自动重命名为 updateReceiverInfoWithHashB5E774) */
+export async function updateReceiverInfoWithHashB5E774(args: {
     receiverInfoParam?: OmsReceiverInfoParam,
   }) {
   return request<CommonResult>({
@@ -108,8 +108,8 @@ export async function updateReceiverInfoWithPost(args: {
   });
 }
 
-/** 修改订单费用信息（由于 OmsOrderController 中 updateReceiverInfo 方法重复，此处已自动重命名为 updateMoneyInfoWithPost) */
-export async function updateMoneyInfoWithPost(args: {
+/** 修改订单费用信息（由于 OmsOrderController 中 updateReceiverInfo 方法存在多个 url，此处已自动重命名为 updateReceiverInfoWithHash0Dd78A) */
+export async function updateReceiverInfoWithHash0Dd78A(args: {
     moneyInfoParam?: OmsMoneyInfoParam,
   }) {
   return request<CommonResult>({
@@ -133,7 +133,7 @@ export async function updateNote(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/order/update/note',
-    data: {
+    params: {
       id: args.id,
       note: args.note,
       status: args.status,

@@ -20,7 +20,7 @@ export async function add(args: {
   });
 }
 
-/** 取消品牌关注 */
+/** 取消品牌关注（由于 MemberAttentionController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     brandId?: number,
   }) {

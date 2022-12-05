@@ -12,7 +12,7 @@ export async function create(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/productAttribute/category/create',
-    data: {
+    params: {
       name: args.name,
     },
     headers: {
@@ -29,7 +29,7 @@ export async function update(args: {
   return request<CommonResult>({
     method: 'POST',
     url: `/productAttribute/category/update/${args.id}`,
-    data: {
+    params: {
       name: args.name,
     },
     headers: {
@@ -38,7 +38,7 @@ export async function update(args: {
   });
 }
 
-/** 删除单个商品属性分类 */
+/** 删除单个商品属性分类（由于 PmsProductAttributeCategoryController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     id: number,
   }) {

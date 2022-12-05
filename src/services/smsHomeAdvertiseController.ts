@@ -20,14 +20,14 @@ export async function create(args: {
   });
 }
 
-/** 删除广告 */
+/** 删除广告（由于 SmsHomeAdvertiseController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     ids?: Array<number>,
   }) {
   return request<CommonResult>({
     method: 'POST',
     url: '/home/advertise/delete',
-    data: {
+    params: {
       ids: args.ids,
     },
     headers: {

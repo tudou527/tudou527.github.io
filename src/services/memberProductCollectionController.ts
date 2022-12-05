@@ -20,7 +20,7 @@ export async function add(args: {
   });
 }
 
-/** 删除商品收藏 */
+/** 删除商品收藏（由于 MemberProductCollectionController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     productId?: number,
   }) {

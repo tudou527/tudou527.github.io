@@ -93,7 +93,7 @@ export async function postForEntity3(args: {
   return request<any>({
     method: 'POST',
     url: '/template/post3',
-    data: {
+    params: {
       name: args.name,
     },
     headers: {

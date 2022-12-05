@@ -46,7 +46,7 @@ export async function paySuccess(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/order/paySuccess',
-    data: {
+    params: {
       orderId: args.orderId,
       payType: args.payType,
     },

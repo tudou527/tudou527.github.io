@@ -71,7 +71,7 @@ export async function getItem(args: {
   });
 }
 
-/** 删除商品分类 */
+/** 删除商品分类（由于 PmsProductCategoryController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     id: number,
   }) {
@@ -92,7 +92,7 @@ export async function updateNavStatus(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/productCategory/update/navStatus',
-    data: {
+    params: {
       ids: args.ids,
       navStatus: args.navStatus,
     },
@@ -110,7 +110,7 @@ export async function updateShowStatus(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/productCategory/update/showStatus',
-    data: {
+    params: {
       ids: args.ids,
       showStatus: args.showStatus,
     },

@@ -19,7 +19,7 @@ export async function add(args: {
   });
 }
 
-/** 删除收货地址 */
+/** 删除收货地址（由于 UmsMemberReceiveAddressController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     id: number,
   }) {

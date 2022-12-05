@@ -6,7 +6,6 @@ import { InboxOutlined } from '@ant-design/icons';
 import ApiDoc from './doc';
 
 import mallSchema from './example/mall.json';
-import vhrSchema from './example/vhr.json';
 
 import style from './style.less';
 
@@ -60,9 +59,6 @@ export default function apiDoc() {
           <span>开源项目示例：</span>
           <Button type="link" onClick={() => handleShowExpmple(mallSchema)}>
             mall 电商系统
-          </Button>
-          <Button type="link" onClick={() => handleShowExpmple(vhrSchema)}>
-            vhr 微人事
           </Button>
         </div>
       </div>

@@ -20,14 +20,14 @@ export async function create(args: {
   });
 }
 
-/** 删除浏览记录 */
+/** 删除浏览记录（由于 MemberReadHistoryController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     ids?: Array<string>,
   }) {
   return request<CommonResult>({
     method: 'POST',
     url: '/member/readHistory/delete',
-    data: {
+    params: {
       ids: args.ids,
     },
     headers: {

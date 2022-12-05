@@ -53,8 +53,8 @@ export async function update(args: {
   });
 }
 
-/** 查询商品（由于 PmsProductController 中 getList 方法重复，此处已自动重命名为 productListWithGet) */
-export async function productListWithGet(args: {
+/** 查询商品（由于 PmsProductController 中 getList 方法存在多个 url，此处已自动重命名为 getListWithHash31Ccfb) */
+export async function getListWithHash31Ccfb(args: {
     productQueryParam?: PmsProductQueryParam,
     pageSize?: number,
     pageNum?: number,
@@ -73,8 +73,8 @@ export async function productListWithGet(args: {
   });
 }
 
-/** 根据商品名称或货号模糊查询（由于 PmsProductController 中 getList 方法重复，此处已自动重命名为 productSimpleListWithGet) */
-export async function productSimpleListWithGet(args: {
+/** 根据商品名称或货号模糊查询（由于 PmsProductController 中 getList 方法存在多个 url，此处已自动重命名为 getListWithHash3C524E) */
+export async function getListWithHash3C524E(args: {
     keyword?: string,
   }) {
   return request<CommonResult<Array<PmsProduct>>>({
@@ -98,7 +98,7 @@ export async function updateVerifyStatus(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/product/update/verifyStatus',
-    data: {
+    params: {
       ids: args.ids,
       verifyStatus: args.verifyStatus,
       detail: args.detail,
@@ -117,7 +117,7 @@ export async function updatePublishStatus(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/product/update/publishStatus',
-    data: {
+    params: {
       ids: args.ids,
       publishStatus: args.publishStatus,
     },
@@ -135,7 +135,7 @@ export async function updateRecommendStatus(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/product/update/recommendStatus',
-    data: {
+    params: {
       ids: args.ids,
       recommendStatus: args.recommendStatus,
     },
@@ -153,7 +153,7 @@ export async function updateNewStatus(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/product/update/newStatus',
-    data: {
+    params: {
       ids: args.ids,
       newStatus: args.newStatus,
     },
@@ -171,7 +171,7 @@ export async function updateDeleteStatus(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/product/update/deleteStatus',
-    data: {
+    params: {
       ids: args.ids,
       deleteStatus: args.deleteStatus,
     },

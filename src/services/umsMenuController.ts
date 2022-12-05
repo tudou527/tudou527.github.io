@@ -51,7 +51,7 @@ export async function getItem(args: {
   });
 }
 
-/** 根据ID删除后台菜单 */
+/** 根据ID删除后台菜单（由于 UmsMenuController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     id: number,
   }) {
@@ -102,7 +102,7 @@ export async function updateHidden(args: {
   return request<CommonResult>({
     method: 'POST',
     url: `/menu/updateHidden/${args.id}`,
-    data: {
+    params: {
       hidden: args.hidden,
     },
     headers: {

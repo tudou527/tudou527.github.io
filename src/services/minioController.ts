@@ -18,14 +18,14 @@ export async function upload(args: {
   });
 }
 
-/** 文件删除 */
+/** 文件删除（由于 MinioController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     objectName?: string,
   }) {
   return request<CommonResult>({
     method: 'POST',
     url: '/minio/delete',
-    data: {
+    params: {
       objectName: args.objectName,
     },
     headers: {

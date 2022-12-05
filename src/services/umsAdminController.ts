@@ -145,7 +145,7 @@ export async function updatePassword(args: {
   });
 }
 
-/** 删除指定用户信息 */
+/** 删除指定用户信息（由于 UmsAdminController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     id: number,
   }) {
@@ -166,7 +166,7 @@ export async function updateStatus(args: {
   return request<CommonResult>({
     method: 'POST',
     url: `/admin/updateStatus/${args.id}`,
-    data: {
+    params: {
       status: args.status,
     },
     headers: {
@@ -183,7 +183,7 @@ export async function updateRole(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/admin/role/update',
-    data: {
+    params: {
       adminId: args.adminId,
       roleIds: args.roleIds,
     },

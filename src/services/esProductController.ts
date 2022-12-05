@@ -16,8 +16,8 @@ export async function importAllList() {
   });
 }
 
-/** 根据id删除商品（由于 EsProductController 中 delete 方法重复，此处已自动重命名为 deleteIdWithGet) */
-export async function deleteIdWithGet(args: {
+/** 根据id删除商品（由于 EsProductController 中 delete 方法存在多个 url，此处已自动重命名为 deleteWithHashC8D508) */
+export async function deleteWithHashC8D508(args: {
     id: number,
   }) {
   return request<CommonResult<any>>({
@@ -29,14 +29,14 @@ export async function deleteIdWithGet(args: {
   });
 }
 
-/** 根据id批量删除商品（由于 EsProductController 中 delete 方法重复，此处已自动重命名为 deleteBatchWithPost) */
-export async function deleteBatchWithPost(args: {
+/** 根据id批量删除商品（由于 EsProductController 中 delete 方法存在多个 url，此处已自动重命名为 deleteWithHash075D0D) */
+export async function deleteWithHash075D0D(args: {
     ids?: Array<number>,
   }) {
   return request<CommonResult<any>>({
     method: 'POST',
     url: '/esProduct/delete/batch',
-    data: {
+    params: {
       ids: args.ids,
     },
     headers: {
@@ -58,8 +58,8 @@ export async function create(args: {
   });
 }
 
-/** 简单搜索（由于 EsProductController 中 search 方法重复，此处已自动重命名为 searchSimpleWithGet) */
-export async function searchSimpleWithGet(args: {
+/** 简单搜索（由于 EsProductController 中 search 方法存在多个 url，此处已自动重命名为 searchWithHash9D1B6B) */
+export async function searchWithHash9D1B6B(args: {
     keyword?: string,
     pageNum?: number,
     pageSize?: number,
@@ -78,8 +78,8 @@ export async function searchSimpleWithGet(args: {
   });
 }
 
-/** 综合搜索、筛选、排序（由于 EsProductController 中 search 方法重复，此处已自动重命名为 esProductSearchWithGet) */
-export async function esProductSearchWithGet(args: {
+/** 综合搜索、筛选、排序（由于 EsProductController 中 search 方法存在多个 url，此处已自动重命名为 searchWithHash0Bc1F3) */
+export async function searchWithHash0Bc1F3(args: {
     keyword?: string,
     brandId?: number,
     productCategoryId?: number,

@@ -37,14 +37,14 @@ export async function updateSort(args: {
   });
 }
 
-/** 批量删除推荐品牌 */
+/** 批量删除推荐品牌（由于 SmsHomeBrandController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     ids?: Array<number>,
   }) {
   return request<CommonResult>({
     method: 'POST',
     url: '/home/brand/delete',
-    data: {
+    params: {
       ids: args.ids,
     },
     headers: {
@@ -61,7 +61,7 @@ export async function updateRecommendStatus(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/home/brand/update/recommendStatus',
-    data: {
+    params: {
       ids: args.ids,
       recommendStatus: args.recommendStatus,
     },

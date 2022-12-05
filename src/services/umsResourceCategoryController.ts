@@ -47,7 +47,7 @@ export async function update(args: {
   });
 }
 
-/** 根据ID删除后台资源 */
+/** 根据ID删除后台资源（由于 UmsResourceCategoryController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     id: number,
   }) {

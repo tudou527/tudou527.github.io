@@ -54,7 +54,7 @@ export async function updateStatus(args: {
   });
 }
 
-/** 删除场次 */
+/** 删除场次（由于 SmsFlashPromotionSessionController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     id: number,
   }) {

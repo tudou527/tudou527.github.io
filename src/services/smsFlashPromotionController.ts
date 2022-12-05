@@ -19,8 +19,8 @@ export async function create(args: {
   });
 }
 
-/** 编辑活动（由于 SmsFlashPromotionController 中 update 方法重复，此处已自动重命名为 updateIdWithPost) */
-export async function updateIdWithPost(args: {
+/** 编辑活动（由于 SmsFlashPromotionController 中 update 方法存在多个 url，此处已自动重命名为 updateWithHash31E59F) */
+export async function updateWithHash31E59F(args: {
     id: number,
     flashPromotion?: SmsFlashPromotion,
   }) {
@@ -36,7 +36,7 @@ export async function updateIdWithPost(args: {
   });
 }
 
-/** 删除活动 */
+/** 删除活动（由于 SmsFlashPromotionController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     id: number,
   }) {
@@ -49,8 +49,8 @@ export async function deleteController(args: {
   });
 }
 
-/** 修改上下线状态（由于 SmsFlashPromotionController 中 update 方法重复，此处已自动重命名为 statusIdWithPost) */
-export async function statusIdWithPost(args: {
+/** 修改上下线状态（由于 SmsFlashPromotionController 中 update 方法存在多个 url，此处已自动重命名为 updateWithHash193D97) */
+export async function updateWithHash193D97(args: {
     id: number,
     status?: number,
   }) {
@@ -66,8 +66,8 @@ export async function statusIdWithPost(args: {
   });
 }
 
-/** 获取活动详情（由于 SmsFlashPromotionController 中 getItem 方法重复，此处已自动重命名为 flashIdWithGet) */
-export async function flashIdWithGet(args: {
+/** 获取活动详情（由于 SmsFlashPromotionController 中 getItem 方法存在多个 url，此处已自动重命名为 getItemWithHashF82349) */
+export async function getItemWithHashF82349(args: {
     id: number,
   }) {
   return request<any>({
@@ -79,8 +79,8 @@ export async function flashIdWithGet(args: {
   });
 }
 
-/** 根据活动名称分页查询（由于 SmsFlashPromotionController 中 getItem 方法重复，此处已自动重命名为 flashListWithGet) */
-export async function flashListWithGet(args: {
+/** 根据活动名称分页查询（由于 SmsFlashPromotionController 中 getItem 方法存在多个 url，此处已自动重命名为 getItemWithHash42E8E6) */
+export async function getItemWithHash42E8E6(args: {
     keyword?: string,
     pageSize?: number,
     pageNum?: number,

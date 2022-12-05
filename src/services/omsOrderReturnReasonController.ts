@@ -37,14 +37,14 @@ export async function update(args: {
   });
 }
 
-/** 批量删除退货原因 */
+/** 批量删除退货原因（由于 OmsOrderReturnReasonController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     ids?: Array<number>,
   }) {
   return request<CommonResult>({
     method: 'POST',
     url: '/returnReason/delete',
-    data: {
+    params: {
       ids: args.ids,
     },
     headers: {
@@ -92,7 +92,7 @@ export async function updateStatus(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/returnReason/update/status',
-    data: {
+    params: {
       status: args.status,
       ids: args.ids,
     },

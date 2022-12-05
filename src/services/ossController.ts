@@ -3,23 +3,13 @@ import request from '../utils/request';
 import { CommonResult } from "./model/api/commonResult";
 import { OssPolicyResult } from "./model/dto/ossPolicyResult";
 import { OssCallbackResult } from "./model/dto/ossCallbackResult";
+import { OmsOrderDeliveryParam } from "./model/dto/omsOrderDeliveryParam";
 
 /** Oss上传签名生成 */
 export async function policy() {
   return request<CommonResult<OssPolicyResult>>({
     method: 'GET',
     url: '/aliyun/oss/policy',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-}
-
-/** Oss上传签名生成 */
-export async function policy() {
-  return request<CommonResult<OssPolicyResult>>({
-    method: 'GET',
-    url: '/ali/oss/policy',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -37,33 +27,20 @@ export async function callback() {
   });
 }
 
-/** Oss上传成功回调 */
-export async function callback() {
+/** */
+export async function withGetAndPost(args: {
+    userId?: string,
+    data?: Array<OmsOrderDeliveryParam>,
+  }) {
   return request<CommonResult<OssCallbackResult>>({
     method: 'POST',
-    url: '/aliyun/oss/callback-success',
-    headers: {
-      'Content-Type': 'application/json',
+    url: '/aliyun/oss/get_and_post',
+    params: {
+      userId: args.userId,
     },
-  });
-}
-
-/** Oss上传成功回调 */
-export async function callback() {
-  return request<CommonResult<OssCallbackResult>>({
-    method: 'POST',
-    url: '/ali/oss/callback',
-    headers: {
-      'Content-Type': 'application/json',
+    data: {
+      data: args.data,
     },
-  });
-}
-
-/** Oss上传成功回调 */
-export async function callback() {
-  return request<CommonResult<OssCallbackResult>>({
-    method: 'POST',
-    url: '/ali/oss/callback-success',
     headers: {
       'Content-Type': 'application/json',
     },

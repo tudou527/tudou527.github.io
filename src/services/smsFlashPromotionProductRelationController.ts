@@ -38,7 +38,7 @@ export async function update(args: {
   });
 }
 
-/** 删除关联 */
+/** 删除关联（由于 SmsFlashPromotionProductRelationController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     id: number,
   }) {

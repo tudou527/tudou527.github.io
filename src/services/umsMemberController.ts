@@ -13,7 +13,7 @@ export async function register(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/sso/register',
-    data: {
+    params: {
       username: args.username,
       password: args.password,
       telephone: args.telephone,
@@ -33,7 +33,7 @@ export async function login(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/sso/login',
-    data: {
+    params: {
       username: args.username,
       password: args.password,
     },
@@ -84,7 +84,7 @@ export async function updatePassword(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/sso/updatePassword',
-    data: {
+    params: {
       telephone: args.telephone,
       password: args.password,
       authCode: args.authCode,

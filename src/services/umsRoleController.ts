@@ -39,14 +39,14 @@ export async function update(args: {
   });
 }
 
-/** 批量删除角色 */
+/** 批量删除角色（由于 UmsRoleController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     ids?: Array<number>,
   }) {
   return request<CommonResult>({
     method: 'POST',
     url: '/role/delete',
-    data: {
+    params: {
       ids: args.ids,
     },
     headers: {
@@ -94,7 +94,7 @@ export async function updateStatus(args: {
   return request<CommonResult>({
     method: 'POST',
     url: `/role/updateStatus/${args.id}`,
-    data: {
+    params: {
       status: args.status,
     },
     headers: {
@@ -137,7 +137,7 @@ export async function allocMenu(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/role/allocMenu',
-    data: {
+    params: {
       roleId: args.roleId,
       menuIds: args.menuIds,
     },
@@ -155,7 +155,7 @@ export async function allocResource(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/role/allocResource',
-    data: {
+    params: {
       roleId: args.roleId,
       resourceIds: args.resourceIds,
     },

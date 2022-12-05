@@ -21,7 +21,7 @@ export async function add(args: {
   });
 }
 
-/** 删除优惠券 */
+/** 删除优惠券（由于 SmsCouponController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     id: number,
   }) {

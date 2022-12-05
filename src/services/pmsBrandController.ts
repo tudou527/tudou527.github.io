@@ -5,8 +5,8 @@ import { PmsBrand } from "./model/model/pmsBrand";
 import { PmsBrandParam } from "./model/dto/pmsBrandParam";
 import { CommonPage } from "./model/api/commonPage";
 
-/** 获取全部品牌列表（由于 PmsBrandController 中 getList 方法重复，此处已自动重命名为 brandListAllWithGet) */
-export async function brandListAllWithGet() {
+/** 获取全部品牌列表（由于 PmsBrandController 中 getList 方法存在多个 url，此处已自动重命名为 getListWithHashE22092) */
+export async function getListWithHashE22092() {
   return request<CommonResult<Array<PmsBrand>>>({
     method: 'GET',
     url: '/brand/listAll',
@@ -49,7 +49,7 @@ export async function update(args: {
   });
 }
 
-/** 删除品牌 */
+/** 删除品牌（由于 PmsBrandController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     id: number,
   }) {
@@ -62,8 +62,8 @@ export async function deleteController(args: {
   });
 }
 
-/** 根据品牌名称分页获取品牌列表（由于 PmsBrandController 中 getList 方法重复，此处已自动重命名为 brandListWithGet) */
-export async function brandListWithGet(args: {
+/** 根据品牌名称分页获取品牌列表（由于 PmsBrandController 中 getList 方法存在多个 url，此处已自动重命名为 getListWithHash0441F7) */
+export async function getListWithHash0441F7(args: {
     keyword?: string,
     pageNum?: number,
     pageSize?: number,
@@ -102,7 +102,7 @@ export async function deleteBatch(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/brand/delete/batch',
-    data: {
+    params: {
       ids: args.ids,
     },
     headers: {
@@ -119,7 +119,7 @@ export async function updateShowStatus(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/brand/update/showStatus',
-    data: {
+    params: {
       ids: args.ids,
       showStatus: args.showStatus,
     },
@@ -137,7 +137,7 @@ export async function updateFactoryStatus(args: {
   return request<CommonResult>({
     method: 'POST',
     url: '/brand/update/factoryStatus',
-    data: {
+    params: {
       ids: args.ids,
       factoryStatus: args.factoryStatus,
     },

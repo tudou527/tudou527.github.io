@@ -95,14 +95,14 @@ export async function updateAttr(args: {
   });
 }
 
-/** 删除购物车中的指定商品 */
+/** 删除购物车中的指定商品（由于 OmsCartItemController 中 delete 方法名为关键字，此处已自动重命名为 deleteController) */
 export async function deleteController(args: {
     ids?: Array<number>,
   }) {
   return request<CommonResult>({
     method: 'POST',
     url: '/cart/delete',
-    data: {
+    params: {
       ids: args.ids,
     },
     headers: {
