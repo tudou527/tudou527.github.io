@@ -344,7 +344,7 @@ export default function ApiDoc(props: IProps) {
         title: '参数来源',
         dataIndex: 'in',
         render: (_val: boolean, rec: any) => {
-          if (rec.method === 'POST') {
+          if (rec.isBodyVariable) {
             return 'Body';
           }
           if (rec.isPathVariable) {
@@ -469,6 +469,8 @@ export default function ApiDoc(props: IProps) {
   useLayoutEffect(() => {
     const container = activeTab === 'api' ? apiRef.current : modelRef.current;
     const activeNode = container?.querySelector(`.${style.activeTitle}`);
+    const mainNode = document.querySelector(`.${style.main}`);
+
     if (activeNode) {
       const rect = activeNode.getBoundingClientRect();
       const parent = activeNode.parentNode.getBoundingClientRect();
@@ -476,6 +478,10 @@ export default function ApiDoc(props: IProps) {
       if (rect.top > parent.top + parent.height || rect.top < parent.top) {
         activeNode.scrollIntoView({ behavior: 'smooth' });
       }
+    }
+
+    if (mainNode) {
+      mainNode.scrollTo({ top: 0 });
     }
   }, [selectApi, selectModel]);
 
