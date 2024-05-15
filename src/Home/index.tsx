@@ -128,7 +128,7 @@ export default function Home() {
         </div>
       </div>
       <div className={style.footer}>
-        Powered by <a target="_blank" href="https://d.umijs.org/">dumi</a>
+        <a target="_blank" href="https://reader.apphunt.site/">Read Video</a>
       </div>
     </div>
   );
