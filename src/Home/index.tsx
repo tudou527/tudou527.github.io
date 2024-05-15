@@ -128,7 +128,7 @@ export default function Home() {
         </div>
       </div>
       <div className={style.footer}>
-        <a target="_blank" href="https://reader.apphunt.site/">Read Video</a>
+        <a target="_blank" href="https://videotranscript.site">Read Video</a>
       </div>
     </div>
   );
